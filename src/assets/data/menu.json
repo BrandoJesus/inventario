@@ -1,0 +1,32 @@
+[
+    {
+      "icon": "pricetags",
+      "name": "Offers",
+      "redirectTo": "/offers",
+      "logged": true
+    },
+    {
+      "icon": "log-in",
+      "name": "Login",
+      "redirectTo": "/user/login",
+      "logged": false
+    },
+    {
+      "icon": "contact",
+      "name": "Profile",
+      "redirectTo": "/user/profile",
+      "logged": true
+    },
+    {
+      "icon": "people",
+      "name": "Register",
+      "redirectTo": "/user/register",
+      "logged": false
+    },
+    {
+      "icon": "book",
+      "name": "List Book",
+      "redirectTo": "/admin/list-books",
+      "logged": true
+    }
+]

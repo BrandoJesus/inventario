@@ -1,0 +1,142 @@
+<app-header titulo="list Books"></app-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row padding  class="ion-align-items-end">
+      <ion-col size="5" offset="7" >
+        <ion-button (click)="onNewBook()">New Book</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" padding>
+        <!-- 
+          (select)='onSelect($event)'
+          (activate)="onActivate($event)"
+         -->
+        <ngx-datatable
+          class='material'
+          [rows]='books'
+          [headerHeight]="50"
+          [footerHeight]="0"
+          [rowHeight]="60"
+          [scrollbarH]="true"
+          [selected]="selected"
+          [selectionType]="'single'"
+          [messages]="{emptyMessage:'No hay datos disponibles.'}"
+        >
+        <ngx-datatable-column name="Titulo" [width]="200">
+          <ng-template let-column="column" ngx-datatable-header-template>
+            <span>Titulo</span>
+          </ng-template>
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            {{ value }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Autor" [width]="150">
+          <ng-template let-column="column" ngx-datatable-header-template>
+            <span>{{column.name}}</span>
+          </ng-template>
+          <ng-template let-value="value" ngx-datatable-cell-template>
+              {{ value }}
+            <!-- <div class="datatable-body-cell-label text-right"> {{ value }}</div> -->
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Descripcion" [width]="200">
+          <ng-template let-column="column" ngx-datatable-header-template>
+            <span>{{column.name}}</span>
+          </ng-template>
+          <ng-template let-value="value" ngx-datatable-cell-template>
+              {{ value }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Idioma" [width]="110">
+          <ng-template let-column="column" ngx-datatable-header-template>
+            <span>{{column.name}}</span>
+          </ng-template>
+          <ng-template let-value="value" ngx-datatable-cell-template>
+              {{ value }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Precio" [width]="110">
+          <ng-template let-column="column" ngx-datatable-header-template>
+            <span>{{column.name}}</span>
+          </ng-template>
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <div class="datatable-body-cell-label text-right"> {{ value }}</div>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="id" [width]="110">
+          <ng-template let-column="column" ngx-datatable-header-template>
+            <span>Editar</span>
+          </ng-template>
+          <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+            <ion-button color="secondary" (click)="onPreUpdateBook(rowIndex)">EDITAR</ion-button>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="id" [width]="110">
+          <ng-template let-column="column" ngx-datatable-header-template>
+            <span>Eliminar</span>
+          </ng-template>
+          <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+              <ion-button color="danger" (click)="onDeletebook(value)">ELIMINAR</ion-button>
+          </ng-template>
+        </ngx-datatable-column>
+          <!-- <ngx-datatable-column name="Meses" [width]="150"></ngx-datatable-column>
+          <ngx-datatable-column name="Cargado" [width]="150"></ngx-datatable-column>
+          <ngx-datatable-column name="Pagado" [width]="150"></ngx-datatable-column>
+          <ngx-datatable-column name="Saldo" [width]="150"></ngx-datatable-column> -->
+        </ngx-datatable>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- <section class="row mt-5">
+    <div class="col">
+      <button class="btn btn-primary float-right mb-3" data-toggle="modal" 
+      data-target="#modalBook">New book</button>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">T&iacute;tulo</th>
+            <th scope="col">Autor</th>
+            <th scope="col">Idioma</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Oferta</th>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let book of books; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ book.titulo }}</td>
+            <td>{{ book.autor }}</td>
+            <td>{{ book.idioma }}</td>
+            <td>{{ book.precio }}</td>
+            <td>{{ book.oferta == '1' ? 'Si': 'No' }}</td>
+            <td *ngIf="book.userUid == userUid || isAdmin == true; else noOwner">
+              <button class="btn btn-primary" data-toggle="modal" data-target="#modalBook" 
+              (click)="onPreUpdateBook(book)">Update</button>
+            </td>
+            <ng-template #noOwner>
+              <td>
+                <button class="btn btn-secondary" disabled="true">Update</button>
+              </td>
+            </ng-template>
+  
+            <td *ngIf="isAdmin == true; else noAdmin">
+              <button class="btn btn-danger" (click)="onDeletebook(book.id)">Delete</button>
+            </td>
+            <ng-template #noAdmin>
+              <td>
+                <button class="btn btn-danger" disabled="true">Delete</button>
+              </td>
+            </ng-template>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section> -->
+  <!-- <app-modal [userUid]="userUid"></app-modal> -->
+</ion-content>

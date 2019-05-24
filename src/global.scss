@@ -9,3 +9,108 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+
+/* You can add global styles to this file, and also import other style files */
+
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/themes/bootstrap.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
+
+#books {
+border-radius: 0.25rem;
+background: #f9f9f9 !important;
+}
+section {
+padding: 20px 0;
+}
+#books .card {
+border: none;
+background: #fff;
+}
+.card_book {
+position: relative;
+-webkit-transform: rotateY(0deg);
+z-index: 2;
+margin-bottom: 30px;
+}
+
+.card_book .card {
+min-height: 312px;
+}
+
+p.card-text,
+h4.card-title {
+min-height: 96px !important;
+}
+
+.card-title {
+color: #007bff;
+cursor: pointer;
+}
+
+.card_book .card .card-body img {
+width: 120px;
+height: 120px;
+border-radius: 50%;
+}
+
+div.container-precio-idioma{
+display: flex;
+justify-content: space-between;
+}
+
+/** Border Collapse  **/
+.ngx-datatable.bootstrap, .ngx-datatable.material {
+    // box-shadow: none;
+    font-size: 13px;
+}
+.datatable-header-cell-label.draggable, .datatable-header-cell, .page-count {
+    color: #000;
+    font-size: 16px;
+    height: 50px;
+    text-align: center !important;
+}
+
+
+.ngx-datatable.fixed-row .datatable-scroll .datatable-body-row .datatable-body-cell, 
+.ngx-datatable.fixed-row .datatable-header .datatable-header-cell{
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+}
+
+.ngx-datatable.material.single-selection .datatable-body-row.active:hover, 
+.ngx-datatable.material.single-selection .datatable-body-row.active:hover 
+.datatable-row-group, .ngx-datatable.material.multi-selection .datatable-body-row.active:hover,
+.ngx-datatable.material.multi-selection .datatable-body-row.active:hover .datatable-row-group,
+.ngx-datatable.material.multi-click-selection .datatable-body-row.active:hover,
+.ngx-datatable.material.multi-click-selection .datatable-body-row.active:hover .datatable-row-group,
+.ngx-datatable.material.single-selection .datatable-body-row.active,
+.ngx-datatable.material.single-selection .datatable-body-row.active .datatable-row-group,
+.ngx-datatable.material.multi-selection .datatable-body-row.active,
+.ngx-datatable.material.multi-selection .datatable-body-row.active .datatable-row-group,
+.ngx-datatable.material.multi-click-selection .datatable-body-row.active,
+.ngx-datatable.material.multi-click-selection .datatable-body-row.active .datatable-row-group {  
+    background-color: #ddd !important;
+    color: #000 !important; 
+}
+
+.ngx-datatable.material .datatable-body .datatable-body-row .datatable-body-cell .text-right {
+    text-align: right !important;
+}
+
+.ngx-datatable.material .datatable-body .datatable-body-row .datatable-body-cell  {
+    // width: 150px !important;
+    white-space: normal !important;
+    padding: .5rem;
+    // height: auto;
+}
+
+.ngx-datatable.fixed-header .datatable-header .datatable-header-inner .datatable-header-cell {
+    // background-color: var(--ion-color-primary) !important;
+    background-color:#797979 !important;
+}
+
+.datatable-header-cell-label.draggable, .datatable-header-cell, .page-count {
+    color: var(--ion-color-primary-contrast) !important;
+}

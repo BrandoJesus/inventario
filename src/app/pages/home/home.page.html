@@ -1,0 +1,70 @@
+<ion-header no-border>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <!-- <ion-button (click)="toggleMenu()"> 
+        <ion-icon slot="icon-only" name="menu"></ion-icon>
+      </ion-button> -->
+      <ion-menu-button color="light" menu="custom"></ion-menu-button>
+    </ion-buttons>
+    <ion-title text-capitalize>home</ion-title>
+    <!-- <ion-buttons>
+      <ion-button>
+        <ion-icon name="home"></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="isLogged" routerLink="/offers">
+        <ion-icon name="pricetags" title="Offers"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+
+    <!-- <ion-buttons slot="end">
+      <ion-button *ngIf="!isLogged" routerLink="/user/login">
+        <ion-icon  name="log-in" title="Login"></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="isLogged" routerLink="/user/profile">
+        <ion-icon  name="contact" title="Login"></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="isLogged" routerLink="/admin/list-books">
+        <ion-icon  name="book" title="Login"></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="!isLogged" routerLink="/user/register">
+        <ion-icon name="people" title="Register"></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="isLogged" (click)="onLogout()">
+        <ion-icon name="log-out" title="Register"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <section id="books" class="mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let book of books">
+          <div class="card_book">
+            <div class="card">
+              <div class="card-body text-center">
+                <p>
+                  <img class="img-fluid" src="{{book.portada}}" alt="{{book.titulo}}">
+                </p>
+                <h4 routerLink="/book/{{book.id}}" class="card-title">{{book.titulo}}</h4>
+                <p class="card-text">
+                  {{ book.descripcion }}
+                </p>
+                <div class="container-precio-idioma">
+                  <p class="badge badge-info">
+                    {{book.precio}}€
+                  </p>
+                  <p class="badge badge-info">
+                    {{book.idioma}}
+                  </p>
+                </div>
+                <a href="{{book.link_amazon}}" class="btn btn-block btn-primary" target="_blank">Buy</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</ion-content>
