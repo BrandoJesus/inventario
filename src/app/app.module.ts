@@ -19,6 +19,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { ComponentsModule } from './components/components.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,7 +33,8 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     AngularFireStorageModule,
     ComponentsModule,
     HttpClientModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     StatusBar,
